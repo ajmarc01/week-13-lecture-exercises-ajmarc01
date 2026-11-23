@@ -20,5 +20,12 @@ import os
 
 if __name__ == "__main__":
     measurements = [0.12, 0.48, 0.83]
-    # TODO: Read the threshold, count qualifying measurements, and print the count.
+    mode = float(os.getenv("THRESHOLD", 0.5))#default to o.5
+
+    count = 0
+    for i in measurements:
+        if measurements >= mode:
+            count += 1
+
+    print(count)
     pass

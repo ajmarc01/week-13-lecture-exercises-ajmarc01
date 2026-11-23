@@ -34,5 +34,11 @@ import os
 
 
 if __name__ == "__main__":
-    # TODO: Read the label and key, then print the label and boolean status.
-    pass
+    label = os.getenv("REPORT_LABEL")
+    api_key = os.getenv("DATA_API_KEY")
+    print(f"Report label: ",label)
+
+    if api_key:#check if api key exists
+        print("API key configured: True")
+    else:
+        print("API key configured: False")

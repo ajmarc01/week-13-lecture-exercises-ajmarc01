@@ -19,11 +19,13 @@ import sys
 
 def num_words(string: str) -> int:
     """Return the number of whitespace-separated words in string."""
-    # TODO: Return the word count.
-    pass
+    individual = string.split()#removes all the white spaces when splitting
+    return len(individual)
 
 
 if __name__ == "__main__":
-    # TODO: Read the file named by sys.argv[1] into text.
-    text = ...
+    text = sys.argv[1]#the input file
+    with open(text, "r", encoding="utf-8") as textfile:
+        text = textfile.read() 
+    text = str(text)
     print(f"The file has {num_words(text)} words.")

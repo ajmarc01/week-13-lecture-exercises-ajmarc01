@@ -27,7 +27,18 @@ import argparse
 
 if __name__ == "__main__":
     # TODO: Parse arguments, read the file, and count substring matches.
-    filename = ...
-    word = ...
-    count = ...
+    parser = argparse.ArgumentParser(description="Please input filename you wish to read and parse.")
+
+    parser.add_argument("filename")
+    parser.add_argument("word", '--ignore-case')
+    args = parser.parse_args()
+    
+    filename = args.filename
+    word = args.word
+
+    with open(filename, "r", encoding="utf-8") as textfile:
+        text = textfile.read()
+    text = str(text)
+    textlist = text.split()
+    count = textlist.count()
     print(f"The word {word} occurred {count} times in {filename}")

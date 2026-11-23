@@ -18,7 +18,15 @@ import subprocess
 
 def run_subprocess(filename):
     """Return the text that cat reads from filename; propagate command errors."""
-    # TODO: Run cat and return its captured standard output.
+    command = ["grep", "test", "file1.txt"]
+
+    result = subprocess.run(command, capture_output=True, text=True, check=True)#cat
+
+    if result:
+        print(result)
+    else:
+        raise subprocess.CalledProcessError
+
     pass
 
 
